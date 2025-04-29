@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spin the Wheel Challenge</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background-color: #f3e5f5;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎡 Spin the Wheel!</h1>
+  <button onclick="spin()">Spin</button>
+  <p id="challenge"></p>
+
+  <script>
+    const challenges = [
+      "Write down 3 things you're grateful for!",
+      "Give someone a compliment!",
+      "Take 5 deep breaths!",
+      "Do one small act of kindness!",
+      "Learn one new word today!"
+    ];
+
+    function spin() {
+      const randomIndex = Math.floor(Math.random() * challenges.length);
+      document.getElementById("challenge").innerText = challenges[randomIndex];
+    }
+  </script>
+</body>
+</html>
