@@ -2,34 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Growth Mindset Quiz</title>
+  <title>Growth Mindset Mini Quizzes</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 30px;
-      background-color: #e8f5e9;
+      background-color: #e3f2fd;
+      color: #0d47a1;
+    }
+    .quiz {
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      max-width: 500px;
     }
     button {
-      margin-top: 20px;
+      margin: 10px;
       padding: 10px 20px;
       font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #64b5f6;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #1976d2;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <h1>📝 Quick Growth Mindset Quiz</h1>
-  <p>Q: Failure is...</p>
-  <button onclick="answer('wrong')">...the end.</button>
-  <button onclick="answer('right')">...a chance to learn!</button>
-  <p id="result"></p>
+
+  <h1>🧠 Growth Mindset Mini Quizzes</h1>
+
+  <div class="quiz">
+    <p><strong>Q1:</strong> When you face a hard math problem, what do you do?</p>
+    <button onclick="answer('wrong', 1)">Give up.</button>
+    <button onclick="answer('right', 1)">Try different strategies.</button>
+    <p id="result1"></p>
+  </div>
+
+  <div class="quiz">
+    <p><strong>Q2:</strong> What does feedback mean to you?</p>
+    <button onclick="answer('right', 2)">A tool to improve.</button>
+    <button onclick="answer('wrong', 2)">An insult.</button>
+    <p id="result2"></p>
+  </div>
+
+  <div class="quiz">
+    <p><strong>Q3:</strong> If you fail a test, what do you think?</p>
+    <button onclick="answer('right', 3)">I’ll study harder next time!</button>
+    <button onclick="answer('wrong', 3)">I'm not smart.</button>
+    <p id="result3"></p>
+  </div>
+
+  <div class="quiz">
+    <p><strong>Q4:</strong> Which phrase shows growth mindset?</p>
+    <button onclick="answer('wrong', 4)">“I can't do it.”</button>
+    <button onclick="answer('right', 4)">“I can’t do it <em>yet</em>.”</button>
+    <p id="result4"></p>
+  </div>
 
   <script>
-    function answer(choice) {
+    function answer(choice, num) {
+      const result = document.getElementById("result" + num);
       if (choice === 'right') {
-        document.getElementById("result").innerText = "Correct! Growth mindset sees failure as a chance to improve. 🌱";
+        result.textContent = "✅ Correct! That's a growth mindset!";
+        result.style.color = "green";
       } else {
-        document.getElementById("result").innerText = "Try again! Failure can help you grow. 🌟";
+        result.textContent = "❌ Oops! Try again with a growth mindset!";
+        result.style.color = "red";
       }
     }
   </script>
