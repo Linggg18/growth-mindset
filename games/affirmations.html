@@ -2,39 +2,106 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Daily Affirmations</title>
   <style>
     body {
+      background-color: #fff3e0;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 30px;
-      background-color: #fff3e0;
+      padding: 40px;
+      color: #5d4037;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #d81b60;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
     }
     button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    button:hover {
+      background-color: #f48fb1;
+      transform: scale(1.05);
+    }
+    #affirmation {
+      margin-top: 30px;
+      font-size: 1.4em;
+      color: #6a1b9a;
+      min-height: 80px;
+      line-height: 1.4;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 40px;
+      text-decoration: none;
+      color: #6a1b9a;
+      font-size: 1em;
+      transition: color 0.3s;
+    }
+    .back:hover {
+      color: #4a148c;
     }
   </style>
 </head>
 <body>
-  <h1>🌸 Get Your Daily Affirmation</h1>
-  <button onclick="newAffirmation()">Show Me</button>
-  <p id="affirmation"></p>
+  <h1>🌸 Daily Affirmations</h1>
+  <p>Click the button to receive your affirmation for today!</p>
+  <button onclick="newAffirmation()">Show Affirmation</button>
+  <div id="affirmation"></div>
+  <a href="games.html" class="back">🔙 Back to Games</a>
 
   <script>
     const affirmations = [
-      "I am capable of amazing things!",
-      "I learn from my mistakes!",
-      "Challenges help me grow!",
-      "I believe in myself!",
-      "Every day is a new beginning!"
+      "I am capable of amazing things.",
+      "I grow stronger with every challenge.",
+      "I embrace learning and new experiences.",
+      "Mistakes help me improve and succeed.",
+      "Every day I become a better version of myself.",
+      "My potential to succeed is infinite.",
+      "I believe in my abilities.",
+      "I am resilient, strong, and brave.",
+      "I choose positivity and growth.",
+      "Challenges are opportunities to shine.",
+      "I learn from criticism and feedback.",
+      "I am in charge of my own happiness.",
+      "Every small step counts toward my goals.",
+      "I am worthy of my dreams.",
+      "I trust the process of life.",
+      "I let go of what I cannot control.",
+      "I am grateful for today’s lessons.",
+      "I have the power to create change.",
+      "My mind is clear, focused, and calm.",
+      "I am patient with my growth.",
+      "I attract success and abundance.",
+      "I am confident in my decisions.",
+      "I celebrate every achievement, big or small.",
+      "I deserve love, joy, and respect.",
+      "I am open to new possibilities.",
+      "I overcome fears with courage.",
+      "I nourish my body, mind, and spirit.",
+      "I forgive myself and others.",
+      "I am proud of who I am becoming.",
+      "Today I choose to be kind to myself."
     ];
 
     function newAffirmation() {
-      const randomIndex = Math.floor(Math.random() * affirmations.length);
-      document.getElementById("affirmation").innerText = affirmations[randomIndex];
+      const idx = Math.floor(Math.random() * affirmations.length);
+      document.getElementById('affirmation').textContent = affirmations[idx];
     }
+
+    // Tampilkan satu affirmasi saat page pertama kali dibuka
+    window.onload = newAffirmation;
   </script>
 </body>
 </html>
