@@ -1,1 +1,52 @@
-add check-in.html in games folder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Check-In</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #f0f8ff;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question label {
+      display: block;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌞 Daily Check-In</h1>
+  <form id="checkinForm">
+    <div class="question">
+      <label>How are you feeling today?</label>
+      <select>
+        <option>😊 Happy</option>
+        <option>😐 Okay</option>
+        <option>😢 Sad</option>
+        <option>😠 Angry</option>
+      </select>
+    </div>
+    <div class="question">
+      <label>What’s one thing you're grateful for today?</label>
+      <input type="text" placeholder="Write here...">
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById('checkinForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Thanks for checking in! 🌈");
+    });
+  </script>
+</body>
+</html>
