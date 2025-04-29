@@ -2,38 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Spin the Wheel Challenge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spin the Wheel Game</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #fff3e0;
+      color: #5d4037;
       text-align: center;
-      padding: 30px;
-      background-color: #f3e5f5;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #d81b60;
+      margin-bottom: 20px;
+    }
+    .wheel-container {
+      position: relative;
+      margin: 50px auto;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 10px solid #e91e63;
+      background-color: #f8bbd0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: rotate(0deg);
+      transition: transform 4s ease-out;
+    }
+    .wheel {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(#f48fb1 0deg 180deg, #ff80ab 180deg 360deg);
+    }
+    .wheel span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.2em;
+      color: white;
+      font-weight: bold;
     }
     button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 20px;
+      padding: 12px 30px;
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    button:hover {
+      background-color: #f48fb1;
+      transform: scale(1.05);
+    }
+    .back {
+      display: inline-block;
+      margin-top: 40px;
+      text-decoration: none;
+      color: #6a1b9a;
+      font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+    .back:hover {
+      color: #4a148c;
     }
   </style>
 </head>
 <body>
-  <h1>🎡 Spin the Wheel!</h1>
-  <button onclick="spin()">Spin</button>
-  <p id="challenge"></p>
+  <h1>🎉 Spin the Wheel Game</h1>
+  <p>Spin the wheel and see what you get!</p>
+
+  <div class="wheel-container">
+    <div class="wheel">
+      <span id="wheel-result">🎯</span>
+    </div>
+  </div>
+
+  <button onclick="spinWheel()">Spin</button>
+  <p id="spin-result">Click "Spin" to start!</p>
+
+  <a href="games.html" class="back">🔙 Back to Games</a>
 
   <script>
-    const challenges = [
-      "Write down 3 things you're grateful for!",
-      "Give someone a compliment!",
-      "Take 5 deep breaths!",
-      "Do one small act of kindness!",
-      "Learn one new word today!"
+    const wheelSegments = [
+      "Reward 1: Extra 5 minutes of break", 
+      "Reward 2: Positive affirmation",
+      "Reward 3: Take a deep breath",
+      "Reward 4: Read a growth mindset quote",
+      "Reward 5: Stretch and relax",
+      "Reward 6: Listen to a song",
+      "Reward 7: Write a quick reflection",
+      "Reward 8: Give yourself a compliment",
+      "Reward 9: Think of a positive memory",
+      "Reward 10: Set a mini goal for the day",
+      // Add up to 200 segments
     ];
 
-    function spin() {
-      const randomIndex = Math.floor(Math.random() * challenges.length);
-      document.getElementById("challenge").innerText = challenges[randomIndex];
+    // Function to spin the wheel
+    function spinWheel() {
+      const randomIndex = Math.floor(Math.random() * wheelSegments.length);
+      const spinResult = wheelSegments[randomIndex];
+
+      const wheel = document.querySelector(".wheel-container");
+      const randomDegree = Math.floor(Math.random() * 360) + 3600; // Minimum 10 full rotations
+      wheel.style.transform = `rotate(${randomDegree}deg)`;
+
+      // After the spinning stops, show the result
+      setTimeout(function() {
+        document.getElementById('spin-result').textContent = `You got: ${spinResult}`;
+      }, 4000);
     }
   </script>
 </body>
