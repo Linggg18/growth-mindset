@@ -2,119 +2,133 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Growth Mindset Quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spin the Wheel Game</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #fff3e0;
-      color: #5d4037;
+      background-color: #e8f5e9;
+      color: #2e7d32;
       text-align: center;
       padding: 20px;
     }
     h1 {
-      font-size: 2.5em;
-      color: #d81b60;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
-    .wheel-container {
-      position: relative;
-      margin: 50px auto;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      border: 10px solid #e91e63;
-      background-color: #f8bbd0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transform: rotate(0deg);
-      transition: transform 4s ease-out;
+    #quiz-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
     }
-    .wheel {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: conic-gradient(#f48fb1 0deg 180deg, #ff80ab 180deg 360deg);
+    .question-block {
+      margin: 15px 0;
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    .wheel span {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.2em;
-      color: white;
-      font-weight: bold;
+    .question-block h3 {
+      margin: 0 0 10px;
+      font-size: 1.1em;
+    }
+    .question-block label {
+      display: block;
+      margin: 5px 0;
     }
     button {
-      padding: 12px 30px;
-      background-color: #ffb6c1;
+      margin: 20px auto;
+      display: block;
+      padding: 10px 25px;
+      background-color: #66bb6a;
       border: none;
-      border-radius: 8px;
-      font-size: 1.2em;
+      border-radius: 5px;
+      color: white;
+      font-size: 1em;
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      transition: background-color 0.3s;
     }
     button:hover {
-      background-color: #f48fb1;
-      transform: scale(1.05);
+      background-color: #388e3c;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
     }
     .back {
       display: inline-block;
-      margin-top: 40px;
+      margin-top: 30px;
       text-decoration: none;
-      color: #6a1b9a;
-      font-size: 1.1em;
-      transition: color 0.3s ease;
+      color: #2e7d32;
     }
     .back:hover {
-      color: #4a148c;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>🎉 Spin the Wheel Game</h1>
-  <p>Spin the wheel and see what you get!</p>
+  <h1>🧠 Growth Mindset Quiz</h1>
+  <p>Answer all <strong>300</strong> questions below:</p>
 
-  <div class="wheel-container">
-    <div class="wheel">
-      <span id="wheel-result">🎯</span>
-    </div>
-  </div>
+  <div id="quiz-container"></div>
 
-  <button onclick="spinWheel()">Spin</button>
-  <p id="spin-result">Click "Spin" to start!</p>
-
+  <button onclick="submitQuiz()">Submit</button>
+  <div id="result"></div>
   <a href="games.html" class="back">🔙 Back to Games</a>
 
   <script>
-    const wheelSegments = [
-      "Reward 1: Extra 5 minutes of break", 
-      "Reward 2: Positive affirmation",
-      "Reward 3: Take a deep breath",
-      "Reward 4: Read a growth mindset quote",
-      "Reward 5: Stretch and relax",
-      "Reward 6: Listen to a song",
-      "Reward 7: Write a quick reflection",
-      "Reward 8: Give yourself a compliment",
-      "Reward 9: Think of a positive memory",
-      "Reward 10: Set a mini goal for the day",
-      // Add up to 200 segments
+    // Tema‐tema pertanyaan untuk variasi
+    const themes = [
+      "mistakes help you learn",
+      "effort leads to mastery",
+      "challenges make you stronger",
+      "feedback is a gift",
+      "failure is part of success",
+      "your brain grows with practice",
+      "setbacks are opportunities",
+      "persistence pays off",
+      "you can improve with effort",
+      "learning never stops"
     ];
 
-    // Function to spin the wheel
-    function spinWheel() {
-      const randomIndex = Math.floor(Math.random() * wheelSegments.length);
-      const spinResult = wheelSegments[randomIndex];
+    // Bangun array quizData dengan 300 objek pertanyaan
+    const quizData = [];
+    for (let i = 1; i <= 300; i++) {
+      const theme = themes[(i - 1) % themes.length];
+      quizData.push({
+        question: `Question ${i}: Do you agree that <em>${theme}</em>?`,
+        options: ["Yes", "No", "Sometimes"],
+        answer: "Yes"
+      });
+    }
 
-      const wheel = document.querySelector(".wheel-container");
-      const randomDegree = Math.floor(Math.random() * 360) + 3600; // Minimum 10 full rotations
-      wheel.style.transform = `rotate(${randomDegree}deg)`;
+    // Render quiz ke DOM
+    const container = document.getElementById('quiz-container');
+    quizData.forEach((q, idx) => {
+      const block = document.createElement('div');
+      block.className = 'question-block';
+      block.innerHTML = `
+        <h3>${q.question}</h3>
+        ${q.options.map(opt => `
+          <label>
+            <input type="radio" name="q${idx}" value="${opt}">
+            ${opt}
+          </label>
+        `).join('')}
+      `;
+      container.appendChild(block);
+    });
 
-      // After the spinning stops, show the result
-      setTimeout(function() {
-        document.getElementById('spin-result').textContent = `You got: ${spinResult}`;
-      }, 4000);
+    // Fungsi submit dan hitung skor
+    function submitQuiz() {
+      let score = 0;
+      quizData.forEach((q, idx) => {
+        const sel = document.querySelector(`input[name="q${idx}"]:checked`);
+        if (sel && sel.value === q.answer) score++;
+      });
+      document.getElementById('result').textContent =
+        `Your score: ${score} / ${quizData.length}`;
+      window.scrollTo(0, document.body.scrollHeight);
     }
   </script>
 </body>
