@@ -2,50 +2,170 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Check-In</title>
   <style>
+    /* Global Styles */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
+      background-color: #f7f9fc;
+      margin: 0;
+      padding: 0;
       text-align: center;
-      padding: 50px;
-      background: #f0f8ff;
+      color: #34495e;
     }
-    .question {
-      margin-bottom: 20px;
+
+    h1 {
+      color: #2c3e50;
+      margin-top: 30px;
+      font-size: 2.5em;
     }
-    .question label {
+
+    p {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+
+    /* Form styling */
+    form {
+      margin-top: 40px;
+      display: inline-block;
+      text-align: left;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      font-size: 1.2em;
+      margin-bottom: 10px;
       display: block;
-      margin: 10px 0;
     }
+
+    select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
     button {
       padding: 10px 20px;
-      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .mood-options {
+      display: flex;
+      justify-content: space-between;
+      width: 50%;
+      margin: 20px auto;
+    }
+
+    .mood-option {
+      font-size: 1.5em;
+      cursor: pointer;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    .mood-option:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      margin-top: 30px;
+      background-color: #34495e;
+      color: white;
+      padding: 10px;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: #3498db;
+      font-size: 1.2em;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
   </style>
 </head>
 <body>
-  <h1>🌞 Daily Check-In</h1>
-  <form id="checkinForm">
-    <div class="question">
-      <label>How are you feeling today?</label>
-      <select>
-        <option>😊 Happy</option>
-        <option>😐 Okay</option>
-        <option>😢 Sad</option>
-        <option>😠 Angry</option>
-      </select>
+  <h1>🌱 Daily Check-In</h1>
+  <p>How are you feeling today?</p>
+
+  <!-- Mood Selection -->
+  <div class="mood-options">
+    <div class="mood-option" id="mood-positive">😊</div>
+    <div class="mood-option" id="mood-neutral">😐</div>
+    <div class="mood-option" id="mood-negative">😔</div>
+  </div>
+
+  <form action="#">
+    <label for="mood">Choose your mood:</label>
+    <select id="mood">
+      <option value="positive">Positive</option>
+      <option value="neutral">Neutral</option>
+      <option value="negative">Negative</option>
+    </select>
+    <br>
+
+    <label for="goal">What is your goal today?</label>
+    <textarea id="goal" rows="4" cols="50"></textarea>
+    <br>
+
+    <!-- Mood Descriptions -->
+    <div id="mood-description" style="font-size: 1.2em; color: #2980b9;">
+      Select your mood above to get more insight.
     </div>
-    <div class="question">
-      <label>What’s one thing you're grateful for today?</label>
-      <input type="text" placeholder="Write here...">
-    </div>
+
+    <br>
     <button type="submit">Submit</button>
   </form>
 
+  <footer>
+    <p><a href="games.html" class="back-link">Back to games list</a></p>
+  </footer>
+
   <script>
-    document.getElementById('checkinForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert("Thanks for checking in! 🌈");
+    // JavaScript to dynamically change mood description based on selection
+    const moodOptions = document.querySelectorAll('.mood-option');
+    const moodDescription = document.getElementById('mood-description');
+    const selectMood = document.getElementById('mood');
+
+    moodOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        const moodValue = this.id.split('-')[1];
+        selectMood.value = moodValue;
+
+        if (moodValue === 'positive') {
+          moodDescription.textContent = "You're feeling great today! Keep it up!";
+        } else if (moodValue === 'neutral') {
+          moodDescription.textContent = "You're feeling neutral. Take small steps forward!";
+        } else if (moodValue === 'negative') {
+          moodDescription.textContent = "You're feeling low today. It's okay to rest!";
+        }
+      });
     });
   </script>
 </body>
