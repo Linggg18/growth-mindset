@@ -2,17 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Growth Mindset - Useful Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🌸 Useful Links</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #ffe6f2; /* very light pink */
+      color: #333;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.2em;
+      color: #d81b60; /* pink */
+    }
+    p {
+      font-size: 1.1em;
+      margin-bottom: 1.5em;
+      color: #666;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #ffffff;
+      border-top: 4px solid #dda0dd; /* light purple */
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .icon {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+      color: #ff69b4; /* hot pink */
+    }
+    .title {
+      font-size: 1.2em;
+      margin-bottom: 0.4em;
+      font-weight: bold;
+    }
+    .desc {
+      font-size: 0.95em;
+      color: #555;
+      line-height: 1.4;
+    }
+    footer {
+      margin-top: 40px;
+      padding: 15px 0;
+      background: #dda0dd; /* light purple */
+      color: white;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
-  <h1>🔗 Useful Links</h1>
-  <p>Click any of the links below to view:</p>
-  <ul>
-    <li><a href="https://linggg18.github.io/growth-mindset/index.html">index.html</a></li>
-    <li><a href="https://linggg18.github.io/growth-mindset/index.htm">index.htm</a></li>
-    <li><a href="https://linggg18.github.io/growth-mindset/growth-mindset.html">growth-mindset.html</a></li>
-    <li><a href="https://github.com/Linggg18/growth-mindset">GitHub Repository</a></li>
-    <li><a href="https://linggg18.github.io/growth-mindset/video.html">video.html</a></li>
-  </ul>
+  <div class="container">
+    <h1>🔗 Useful Links</h1>
+    <p>Click any card below to open:</p>
+    <div class="grid">
+      <a class="card" href="https://linggg18.github.io/growth-mindset/index.html">
+        <div class="icon">🌐</div>
+        <div class="title">index.html</div>
+        <div class="desc">Main HTML page of Growth Mindset site.</div>
+      </a>
+      <a class="card" href="https://linggg18.github.io/growth-mindset/index.htm">
+        <div class="icon">🌐</div>
+        <div class="title">index.htm</div>
+        <div class="desc">Alternate index page (HTM extension).</div>
+      </a>
+      <a class="card" href="https://linggg18.github.io/growth-mindset/growth-mindset.html">
+        <div class="icon">📈</div>
+        <div class="title">growth-mindset.html</div>
+        <div class="desc">Deep dive into the Growth Mindset concept.</div>
+      </a>
+      <a class="card" href="https://github.com/Linggg18/growth-mindset">
+        <div class="icon">🐙</div>
+        <div class="title">GitHub Repository</div>
+        <div class="desc">Browse the source code and project files.</div>
+      </a>
+      <a class="card" href="https://linggg18.github.io/growth-mindset/video.html">
+        <div class="icon">🎥</div>
+        <div class="title">video.html</div>
+        <div class="desc">Watch the Growth Mindset video presentation.</div>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    Powered by Growth Mindset – Your path to a better you!
+  </footer>
 </body>
 </html>
