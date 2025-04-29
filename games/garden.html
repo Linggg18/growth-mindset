@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🌸 Growth Garden Game with Levels</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f8e9;
+      text-align: center;
+      padding: 30px;
+    }
+    #garden {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .plot {
+      width: 90px;
+      height: 90px;
+      border: 2px dashed #388e3c;
+      margin: 10px;
+      background-color: #ffffff;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .flower {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      transition: transform 0.5s ease;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #66bb6a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #quiz-box {
+      display: none;
+      margin-top: 20px;
+    }
+    #quiz-box p {
+      font-weight: bold;
+    }
+    #scoreboard {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    #level-display {
+      font-size: 20px;
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌼 Growth Garden Game</h1>
+  <p>Grow flowers and level up your garden! 🌻</p>
+
+  <div id="level-display">Level: <span id="level">1</span></div>
+  <div id="scoreboard">Score: <span id="score">0</span></div>
+  <div id="garden"></div>
+
+  <div id="quiz-box">
+    <p id="quiz-question"></p>
+    <button onclick="checkAnswer(true)">✅ True</button>
+    <button onclick="checkAnswer(false)">❌ False</button>
+  </div>
+
+  <button onclick="resetGarden()">🔄 Reset Game</button>
+
+  <script>
+    const garden = document.getElementById('garden');
+    const quizBox = document.getElementById('quiz-box');
+    const quizQuestion = document.getElementById('quiz-question');
+    const scoreDisplay = document.getElementById('score');
+    const levelDisplay = document.getElementById('level');
+
+    let selectedPlot = null;
+    let score = 0;
+    let level = 1;
+
+    const questions = [
+      { q: "Mistakes help you learn", a: true },
+      { q: "Failure means you should give up", a: false },
+      { q: "Effort leads to mastery", a: true },
+      { q: "Feedback is a gift", a: true },
+      { q: "Challenges make you weaker", a: false },
+      { q: "You can't improve after failing", a: false },
+      { q: "Your brain grows with practice", a: true },
+      { q: "Setbacks are opportunities", a: true },
+    ];
+
+    function createGarden(level) {
+      garden.innerHTML = '';
+      let plotCount = level * 6;
+      for (let i = 0; i < plotCount; i++) {
+        const plot = document.createElement('div');
+        plot.className = 'plot';
+        plot.dataset.level = "0";
+        plot.onclick = () => askQuiz(plot);
+        garden.appendChild(plot);
+      }
+    }
+
+    function askQuiz(plot) {
+      if (plot.dataset.level >= 3) return;
+      selectedPlot = plot;
+      quizBox.style.display = 'block';
+      const random = questions[Math.floor(Math.random() * questions.length)];
+      quizBox.dataset.correct = random.a;
+      quizQuestion.textContent = random.q;
+    }
+
+    function checkAnswer(userAnswer) {
+      quizBox.style.display = 'none';
+      if (userAnswer.toString() === quizBox.dataset.correct) {
+        let levelFlower = parseInt(selectedPlot.dataset.level);
+        if (levelFlower < 3) {
+          levelFlower++;
+          selectedPlot.dataset.level = levelFlower;
+          drawFlower(selectedPlot, levelFlower);
+          score += 10;
+          scoreDisplay.textContent = score;
+          checkLevelUp();
+        }
+        alert("Correct! 🌼 Your flower grew!");
+      } else {
+        alert("Oops! Try again. 🌱");
+      }
+      selectedPlot = null;
+    }
+
+    function drawFlower(plot, level) {
+      plot.innerHTML = '';
+      const img = document.createElement('img');
+      img.className = 'flower';
+      if (level === 1) {
+        img.src = 'https://cdn-icons-png.flaticon.com/512/616/616408.png';
+        img.style.width = "30px";
+        img.style.transform = "scale(1)";
+      } else if (level === 2) {
+        img.src = 'https://cdn-icons-png.flaticon.com/512/616/616408.png';
+        img.style.width = "45px";
+        img.style.transform = "scale(1.2)";
+      } else if (level === 3) {
+        img.src = 'https://cdn-icons-png.flaticon.com/512/616/616408.png';
+        img.style.width = "60px";
+        img.style.transform = "scale(1.4)";
+      }
+      plot.appendChild(img);
+    }
+
+    function checkLevelUp() {
+      let nextLevelScore = level * 60;
+      if (score >= nextLevelScore && level < 3) {
+        level++;
+        levelDisplay.textContent = level;
+        alert(`🌟 Level Up! Welcome to Level ${level}!`);
+        createGarden(level);
+      }
+    }
+
+    function resetGarden() {
+      score = 0;
+      level = 1;
+      scoreDisplay.textContent = score;
+      levelDisplay.textContent = level;
+      quizBox.style.display = 'none';
+      createGarden(level);
+    }
+
+    createGarden(level);
+  </script>
+
+</body>
+</html>
