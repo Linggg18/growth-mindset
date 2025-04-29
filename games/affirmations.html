@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Affirmations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background-color: #fff3e0;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌸 Get Your Daily Affirmation</h1>
+  <button onclick="newAffirmation()">Show Me</button>
+  <p id="affirmation"></p>
+
+  <script>
+    const affirmations = [
+      "I am capable of amazing things!",
+      "I learn from my mistakes!",
+      "Challenges help me grow!",
+      "I believe in myself!",
+      "Every day is a new beginning!"
+    ];
+
+    function newAffirmation() {
+      const randomIndex = Math.floor(Math.random() * affirmations.length);
+      document.getElementById("affirmation").innerText = affirmations[randomIndex];
+    }
+  </script>
+</body>
+</html>
