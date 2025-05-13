@@ -1,41 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>🌸 Useful Links</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Understanding Growth Mindset</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap');
+
     body {
       margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #ffe4ec, #e1bee7);
+      color: #4b0082;
+    }
+
+    header {
+      background: #f06292;
+      color: white;
+      padding: 60px 20px 30px;
+      text-align: center;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3.5em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: 20px auto 0;
+    }
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #ffe6f2; /* very light pink */
+      list-style-type: none;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1em;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #f06292;
+      transform: scale(1.1);
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+
+    .content h2 {
+      color: #d81b60;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
       color: #333;
     }
+
+    .links {
+      margin-top: 30px;
+    }
+
+    .links h3 {
+      color: #d81b60;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .links ul {
+      list-style-type: '🌟 ';
+      padding-left: 20px;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: #6a1b9a;
+      font-weight: 600;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+      color: #ab47bc;
+    }
+
     .container {
       max-width: 960px;
       margin: 0 auto;
       padding: 40px 20px;
       text-align: center;
     }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.2em;
-      color: #d81b60; /* pink */
-    }
-    p {
-      font-size: 1.1em;
-      margin-bottom: 1.5em;
-      color: #666;
-    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
     }
+
     .card {
       background: #ffffff;
-      border-top: 4px solid #dda0dd; /* light purple */
+      border-top: 4px solid #dda0dd;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
       padding: 20px;
@@ -43,36 +135,68 @@
       color: inherit;
       transition: transform 0.2s, box-shadow 0.2s;
     }
+
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     }
+
     .icon {
       font-size: 2.5em;
       margin-bottom: 0.5em;
-      color: #ff69b4; /* hot pink */
+      color: #ff69b4;
     }
+
     .title {
       font-size: 1.2em;
       margin-bottom: 0.4em;
       font-weight: bold;
     }
+
     .desc {
       font-size: 0.95em;
       color: #555;
       line-height: 1.4;
     }
+
     footer {
+      text-align: center;
+      background: #f8bbd0;
+      padding: 25px;
+      font-size: 1em;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
       margin-top: 40px;
-      padding: 15px 0;
-      background: #dda0dd; /* light purple */
-      color: white;
-      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <header>
+    <h1>Understanding Growth Mindset</h1>
+    <p>✨ Welcome to this colorful corner of the web! Here, you'll learn how to grow, improve, and face challenges with courage and positivity! 💪🌈</p>
+    <nav>
+      <ul>
+        <li><a href="#content">About Growth Mindset</a></li>
+        <li><a href="#useful-links">Useful Links</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="content" id="content">
+    <h2>🌱 What is a Growth Mindset?</h2>
+    <p>
+      A Growth Mindset is the belief that your abilities and intelligence can be developed through effort, learning, and persistence. People with a growth mindset don’t fear failure—they see it as a learning opportunity.
+    </p>
+    <p>
+      This term was introduced by psychologist Carol Dweck, who showed that people who believe they can improve tend to reach higher goals and become more resilient.
+    </p>
+    <p>
+      So, let’s build a mindset that loves learning, embraces challenges, and grows stronger every day!
+    </p>
+  </div>
+
+  <div class="container" id="useful-links">
     <h1>🔗 Useful Links</h1>
     <p>Click any card below to open:</p>
     <div class="grid">
@@ -101,7 +225,6 @@
         <div class="title">video.html</div>
         <div class="desc">Watch the Growth Mindset video presentation.</div>
       </a>
-      <!-- Link to Growth Mindset Games -->
       <a class="card" href="https://linggg18.github.io/growth-mindset/games/games.html">
         <div class="icon">🎮</div>
         <div class="title">Growth Mindset Games</div>
@@ -113,5 +236,6 @@
   <footer>
     Powered by Growth Mindset – Your path to a better you!
   </footer>
+
 </body>
 </html>
