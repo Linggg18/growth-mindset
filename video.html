@@ -1,164 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Growth Mindset Website</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #ffe4ec, #e1bee7);
-      color: #4b0082;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Mindset Website</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffe4ec, #e1bee7);
+            color: #4b0082;
+        }
 
-    header {
-      background: #f06292;
-      color: white;
-      padding: 50px;
-      text-align: center;
-      border-bottom-left-radius: 40px;
-      border-bottom-right-radius: 40px;
-    }
+        header {
+            background: #f06292;
+            color: white;
+            padding: 50px;
+            text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
 
-    header h1 {
-      font-size: 3em;
-      margin: 0;
-    }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
 
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
 
-    h2 {
-      color: #d81b60;
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
+        h2 {
+            color: #d81b60;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
 
-    p {
-      font-size: 1.1em;
-      margin-bottom: 20px;
-      line-height: 1.6;
-      color: #333;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
 
-    a {
-      text-decoration: none;
-      color: #6a1b9a;
-      font-weight: bold;
-    }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
 
-    a:hover {
-      text-decoration: underline;
-      color: #ab47bc;
-    }
+        .video-grid iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
 
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      padding: 30px;
-    }
+        footer {
+            background: #f8bbd0;
+            color: #4b0082;
+            text-align: center;
+            padding: 25px;
+            font-size: 1.2em;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            margin-top: 40px;
+        }
 
-    footer {
-      background: #f8bbd0;
-      color: #4b0082;
-      text-align: center;
-      padding: 25px;
-      font-size: 1.2em;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      margin-top: 40px;
-    }
-
-    .video-gallery {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .video-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-bottom: 30px;
-    }
-
-    .video-row iframe {
-      width: 32%;
-      height: 200px;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    footer p {
-      margin: 0;
-    }
-  </style>
+        footer p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-  
-<div class="video-gallery">
-  <h2 style="text-align:center;">Motivational Videos</h2>
 
-  <!-- Repeat this row block for every 3 videos (8 times total) -->
-  <div class="video-row">
-    <iframe src="https://www.youtube.com/embed/Y6hz_s2XIAU" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/2zrp-kYIIOI" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/KUWn_TJTrnU" allowfullscreen></iframe>
-  </div>
+<header>
+    <h1>Growth Mindset Website</h1>
+    <p>Welcome to my website, let's explore the growth mindset together!</p>
+</header>
 
-  <div class="video-row">
-    <iframe src="https://www.youtube.com/embed/M1CHPnZfFmU" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/r1B4t1Rz5ZM" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/E8N3I2J3Jeo" allowfullscreen></iframe>
-  </div>
+<div class="container">
+    <h2>Growth Mindset Videos</h2>
+    <div class="video-grid">
+        <iframe src="https://www.youtube.com/embed/2zrtHt3bBmQ" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/M1CHPnZfFmU" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/75GFzikmRY0" frameborder="0" allowfullscreen></iframe>
 
-  <div class="video-row">
-    <iframe src="https://www.youtube.com/embed/hiiEeMN7vbQ" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/UNP03fDSj1U" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/75okexRzWMk" allowfullscreen></iframe>
-  </div>
+        <iframe src="https://www.youtube.com/embed/KUWn_TJTrnU" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/5tSTk1083VY" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/8iW5jIv9hvY" frameborder="0" allowfullscreen></iframe>
 
-  <div class="video-row">
-    <iframe src="https://www.youtube.com/embed/zLYECIjmnQs" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/lU3R0ot18bg" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/O96fE1E-rf8" allowfullscreen></iframe>
-  </div>
+        <iframe src="https://www.youtube.com/embed/HwP2XDsGUxQ" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/ySdjwk0A3c8" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/OnrT0Fdum-M" frameborder="0" allowfullscreen></iframe>
 
-  <div class="video-row">
-    <iframe src="https://www.youtube.com/embed/BwFOwyoH-3g" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/2z6kPZ6uFSs" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/g-jwWYX7Jlo" allowfullscreen></iframe>
-  </div>
+        <iframe src="https://www.youtube.com/embed/vjE0E-Z0co8" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/kXhbtCcmsyQ" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/WaUqqK3p3d4" frameborder="0" allowfullscreen></iframe>
 
-  <div class="video-row">
-    <iframe src="https://www.youtube.com/embed/3sK3wJAxGfs" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/2z3gYTwJ3lU" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/rRrUJVcRZmI" allowfullscreen></iframe>
-  </div>
+        <iframe src="https://www.youtube.com/embed/qaeFnxSfSC4" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/V4U7rz7tZ-M" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/ELpfYCZa87g" frameborder="0" allowfullscreen></iframe>
 
-  <div class="video-row">
-    <iframe src="https://www.youtube.com/embed/q7vFqNNOyl4" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/LW6RQv8Nc64" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/miPYLJI247g" allowfullscreen></iframe>
-  </div>
+        <iframe src="https://www.youtube.com/embed/4n1l4uOkhOQ" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/XpYz-q1lxu8" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/ZR8i2NYChXo" frameborder="0" allowfullscreen></iframe>
 
-  <div class="video-row">
-    <iframe src="https://www.youtube.com/embed/V1laSvjRCXM" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/OkzxgqcCkWw" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/ZqM6z8V09xg" allowfullscreen></iframe>
-  </div>
+        <iframe src="https://www.youtube.com/embed/o8BkzvP19v4" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/Wh0OS4MrN3Q" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/gtmMMRuiAZU" frameborder="0" allowfullscreen></iframe>
+
+        <iframe src="https://www.youtube.com/embed/5qkzwG2M45Q" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/falHoOEUFz0" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/iAcP9UdNN2k" frameborder="0" allowfullscreen></iframe>
+    </div>
 </div>
 
 <footer>
-  <p>&copy; 2025 Growth Mindset Website. All rights reserved.</p>
+    <p>&copy; 2025 Growth Mindset Website. All rights reserved.</p>
 </footer>
 
 </body>
