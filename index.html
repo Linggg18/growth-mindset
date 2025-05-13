@@ -35,6 +35,36 @@
       margin: 20px auto 0;
     }
 
+    nav {
+      margin-top: 20px;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1em;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #f06292;
+      transform: scale(1.1);
+    }
+
     .content {
       max-width: 900px;
       margin: 40px auto;
@@ -82,6 +112,53 @@
       color: #ab47bc;
     }
 
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-top: 4px solid #dda0dd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .icon {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+      color: #ff69b4;
+    }
+
+    .title {
+      font-size: 1.2em;
+      margin-bottom: 0.4em;
+      font-weight: bold;
+    }
+
+    .desc {
+      font-size: 0.95em;
+      color: #555;
+      line-height: 1.4;
+    }
+
     footer {
       text-align: center;
       background: #f8bbd0;
@@ -98,9 +175,15 @@
   <header>
     <h1>Understanding Growth Mindset</h1>
     <p>✨ Welcome to this colorful corner of the web! Here, you'll learn how to grow, improve, and face challenges with courage and positivity! 💪🌈</p>
+    <nav>
+      <ul>
+        <li><a href="#content">About Growth Mindset</a></li>
+        <li><a href="#useful-links">Useful Links</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <div class="content">
+  <div class="content" id="content">
     <h2>🌱 What is a Growth Mindset?</h2>
     <p>
       A Growth Mindset is the belief that your abilities and intelligence can be developed through effort, learning, and persistence. People with a growth mindset don’t fear failure—they see it as a learning opportunity.
@@ -111,21 +194,47 @@
     <p>
       So, let’s build a mindset that loves learning, embraces challenges, and grows stronger every day!
     </p>
+  </div>
 
-    <div class="links">
-      <h3>🔗 Useful Links</h3>
-      <ul>
-        <li><a href="https://www.mindsetworks.com" target="_blank">MindsetWorks – Growth Mindset Resources</a></li>
-        <li><a href="https://www.edutopia.org/article/5-strategies-help-students-develop-growth-mindset" target="_blank">Edutopia – Strategies for Growth Mindset</a></li>
-        <li><a href="https://www.youtube.com/results?search_query=growth+mindset" target="_blank">YouTube – Growth Mindset Videos</a></li>
-        <!-- Tambahan link kamu di bawah -->
-        <li><a href="https://linggg18.github.io/growth-mindset/links.html" target="_blank">My Useful Growth Mindset Links</a></li>
-      </ul>
+  <div class="container" id="useful-links">
+    <h1>🔗 Useful Links</h1>
+    <p>Click any card below to open:</p>
+    <div class="grid">
+      <a class="card" href="https://linggg18.github.io/growth-mindset/index.html">
+        <div class="icon">🌐</div>
+        <div class="title">index.html</div>
+        <div class="desc">Main HTML page of Growth Mindset site.</div>
+      </a>
+      <a class="card" href="https://linggg18.github.io/growth-mindset/index.htm">
+        <div class="icon">🌐</div>
+        <div class="title">index.htm</div>
+        <div class="desc">Alternate index page (HTM extension).</div>
+      </a>
+      <a class="card" href="https://linggg18.github.io/growth-mindset/growth-mindset.html">
+        <div class="icon">📈</div>
+        <div class="title">growth-mindset.html</div>
+        <div class="desc">Deep dive into the Growth Mindset concept.</div>
+      </a>
+      <a class="card" href="https://github.com/Linggg18/growth-mindset">
+        <div class="icon">🐙</div>
+        <div class="title">GitHub Repository</div>
+        <div class="desc">Browse the source code and project files.</div>
+      </a>
+      <a class="card" href="https://linggg18.github.io/growth-mindset/video.html">
+        <div class="icon">🎥</div>
+        <div class="title">video.html</div>
+        <div class="desc">Watch the Growth Mindset video presentation.</div>
+      </a>
+      <a class="card" href="https://linggg18.github.io/growth-mindset/games/games.html">
+        <div class="icon">🎮</div>
+        <div class="title">Growth Mindset Games</div>
+        <div class="desc">Play games to boost your Growth Mindset!</div>
+      </a>
     </div>
   </div>
 
   <footer>
-    🌸 With a growth mindset, every step forward is a small victory. Keep blooming!
+    Powered by Growth Mindset – Your path to a better you!
   </footer>
 
 </body>
