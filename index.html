@@ -2,130 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Understanding Growth Mindset</title>
   <style>
-    /* GABUNGKAN STYLE DARI 'Useful Links' DI SINI */
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #ffe6f2;
-      color: #333;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to right, #ffe4ec, #f3e5f5);
+      color: #4b0082;
+      line-height: 1.6;
     }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 40px 20px;
+
+    header {
+      background: linear-gradient(to right, #d291bc, #f3a1e2);
       text-align: center;
-    }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.2em;
-      color: #d81b60;
-    }
-    p {
-      font-size: 1.1em;
-      margin-bottom: 1.5em;
-      color: #666;
-    }
-    iframe {
-      max-width: 100%;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #ffffff;
-      border-top: 4px solid #dda0dd;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      padding: 20px;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    }
-    .icon {
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
-      color: #ff69b4;
-    }
-    .title {
-      font-size: 1.2em;
-      margin-bottom: 0.4em;
-      font-weight: bold;
-    }
-    .desc {
-      font-size: 0.95em;
-      color: #555;
-      line-height: 1.4;
-    }
-    footer {
-      margin-top: 40px;
-      padding: 15px 0;
-      background: #dda0dd;
+      padding: 60px 20px 30px;
       color: white;
-      font-size: 0.9em;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin: 0 auto;
+      max-width: 700px;
+      color: #fffdfd;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .content h2 {
+      color: #d81b60;
+      font-size: 1.8em;
+    }
+
+    .content p {
+      font-size: 1.1em;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    iframe {
+      display: block;
+      margin: 20px auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f8bbd0;
+      color: #4b0082;
+      font-size: 1em;
+      margin-top: 40px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <header>
     <h1>Understanding Growth Mindset</h1>
-    <p>Watch the video below to understand what a Growth Mindset is:</p>
+    <p>✨ Welcome to this website! Here, you’ll discover how a Growth Mindset can help you grow, learn, and thrive in everything you do. Let’s unlock your full potential together! 💪🌟</p>
+  </header>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/r0qpJxEhOP4"
-      title="What Having a Growth Mindset Actually Means" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-    </iframe>
-  </div>
+  <div class="content">
+    <h2>🌱 What is a Growth Mindset?</h2>
+    <p>
+      A Growth Mindset is the belief that your abilities and intelligence can be developed through effort, learning, and persistence.
+      Instead of seeing failures as setbacks, people with a growth mindset see them as opportunities to grow.
+    </p>
+    <p>
+      This concept was introduced by psychologist Carol Dweck. She found that individuals with a growth mindset are more likely to keep trying and achieve their goals—even when things get tough.
+    </p>
+    <p>
+      When you adopt a Growth Mindset, you become more open to challenges, more confident in learning from mistakes, and more motivated to improve every day.
+    </p>
 
-  <div class="container">
-    <h1>🔗 Useful Links</h1>
-    <p>Click any card below to open:</p>
-    <div class="grid">
-      <a class="card" href="https://linggg18.github.io/growth-mindset/index.html">
-        <div class="icon">🌐</div>
-        <div class="title">index.html</div>
-        <div class="desc">Main HTML page of Growth Mindset site.</div>
-      </a>
-      <a class="card" href="https://linggg18.github.io/growth-mindset/index.htm">
-        <div class="icon">🌐</div>
-        <div class="title">index.htm</div>
-        <div class="desc">Alternate index page (HTM extension).</div>
-      </a>
-      <a class="card" href="https://linggg18.github.io/growth-mindset/growth-mindset.html">
-        <div class="icon">📈</div>
-        <div class="title">growth-mindset.html</div>
-        <div class="desc">Deep dive into the Growth Mindset concept.</div>
-      </a>
-      <a class="card" href="https://github.com/Linggg18/growth-mindset">
-        <div class="icon">🐙</div>
-        <div class="title">GitHub Repository</div>
-        <div class="desc">Browse the source code and project files.</div>
-      </a>
-      <a class="card" href="https://linggg18.github.io/growth-mindset/video.html">
-        <div class="icon">🎥</div>
-        <div class="title">video.html</div>
-        <div class="desc">Watch the Growth Mindset video presentation.</div>
-      </a>
-      <a class="card" href="https://linggg18.github.io/growth-mindset/games/games.html">
-        <div class="icon">🎮</div>
-        <div class="title">Growth Mindset Games</div>
-        <div class="desc">Play games to boost your Growth Mindset!</div>
-      </a>
-    </div>
+    <h2>🎥 Watch the video below:</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/r0qpJxEhOP4" title="What Having a Growth Mindset Actually Means" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 
   <footer>
-    Powered by Growth Mindset – Your path to a better you!
+    🌸 Remember: Every step forward is a step toward your dreams. Keep growing!
   </footer>
 
 </body>
