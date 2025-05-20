@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2025 Growth Calendar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Baloo 2', cursive;
+      background: linear-gradient(to bottom right, #fffaf0, #e0f7fa);
+      margin: 0;
+      padding: 20px;
+      color: #207070;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2.8em;
+      text-shadow: 1px 1px 3px #9be3e3;
+    }
+
+    #today-info {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #104040;
+    }
+
+    .controls {
+      margin-bottom: 30px;
+    }
+
+    select {
+      font-family: 'Baloo 2', cursive;
+      font-size: 1em;
+      padding: 6px 12px;
+      border: 2px solid #207070;
+      border-radius: 12px;
+      background-color: #d0f0f6;
+      color: #104040;
+      cursor: pointer;
+      margin: 0 8px;
+      box-shadow: 2px 2px 6px #9be3e3;
+      transition: background-color 0.3s ease;
+    }
+    select:hover {
+      background-color: #b0e0ea;
+    }
+
+    .calendar {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 15px;
+    }
+
+    .day-name, .day-box {
+      background: #d0f0f6;
+      border: 2px solid #207070;
+      border-radius: 20px;
+      padding: 12px 8px;
+      box-shadow: 3px 3px 8px #9be3e3;
+      font-size: 1.1em;
+      color: #104040;
+    }
+
+    .day-name {
+      font-weight: 700;
+      background: #207070;
+      color: white;
+      box-shadow: 2px 2px 6px #135353;
+    }
+
+    .day-box {
+      min-height: 110px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      cursor: default;
+      position: relative;
+      transition: transform 0.15s ease;
+    }
+
+    .day-box:hover {
+      transform: scale(1.05);
+      background-color: #b0e0ea;
+    }
+
+    .day-number {
+      font-weight: 700;
+      font-size: 1.5em;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .day-number.today {
+      background: #ff9a9a;
+      color: white;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      box-shadow: 0 0 12px #ff5c5c;
+      margin: 0 auto 8px auto;
+    }
+
+    textarea {
+      width: 90%;
+      height: 70px;
+      border: 1px solid #207070;
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 1em;
+      resize: vertical;
+      background-color: #e0f7fa;
+      font-family: 'Baloo 2', cursive;
+      color: #104040;
+    }
+
+    textarea::placeholder {
+      font-style: italic;
+      color: #104040;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌸 2025 Growth Calendar 🌸</h1>
+  <div id="today-info"></div>
+
+  <div class="controls">
+    <label for="year-select">Year:</label>
+    <select id="year-select">
+      <option value="2025" selected>2025</option>
+      <!-- you can add more years here -->
+    </select>
+
+    <label for="month-select">Month:</label>
+    <select id="month-select">
+      <option value="0">January</option>
+      <option value="1">February</option>
+      <option value="2">March</option>
+      <option value="3">April</option>
+      <option value="4">May</option>
+      <option value="5">June</option>
+      <option value="6">July</option>
+      <option value="7">August</option>
+      <option value="8">September</option>
+      <option value="9">October</option>
+      <option value="10">November</option>
+      <option value="11">December</option>
+    </select>
+  </div>
+
+  <div class="calendar" id="calendar-grid">
+    <!-- day names and days will be inserted here by JS -->
+  </div>
+
+  <footer>© 2025 Your Name</footer>
+
+  <script>
+    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                        'July', 'August', 'September', 'October', 'November', 'December'];
+
+    const calendarGrid = document.getElementById('calendar-grid');
+    const todayInfo = document.getElementById('today-info');
+    const monthSelect = document.getElementById('month-select');
+    const yearSelect = document.getElementById('year-select');
+
+    function getDaysInMonth(year, month) {
+      return new Date(year, month + 1, 0).getDate();
+    }
+
+    function generateCalendar(year, month) {
+      calendarGrid.innerHTML = '';
+
+      // Add day names header
+      dayNames.forEach(day => {
+        const dayNameDiv = document.createElement('div');
+        dayNameDiv.classList.add('day-name');
+        dayNameDiv.textContent = day;
+        calendarGrid.appendChild(dayNameDiv);
+      });
+
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = getDaysInMonth(year, month);
+
+      // Add empty boxes for days before the first day of the month
+      for (let i = 0; i < firstDay; i++) {
+        const emptyBox = document.createElement('div');
+        emptyBox.classList.add('day-box');
+        calendarGrid.appendChild(emptyBox);
+      }
+
+      const now = new Date();
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dayBox = document.createElement('div');
+        dayBox.classList.add('day-box');
+
+        const dayNumber = document.createElement('div');
+        dayNumber.classList.add('day-number');
+        dayNumber.textContent = day;
+
+        // Highlight if today
+        if (year === now.getFullYear() && month === now.getMonth() && day === now.getDate()) {
+          dayNumber.classList.add('today');
+        }
+
+        const textarea = document.createElement('textarea');
+        textarea.placeholder = 'Write your thoughts...';
+
+        dayBox.appendChild(dayNumber);
+        dayBox.appendChild(textarea);
+        calendarGrid.appendChild(dayBox);
+      }
+    }
+
+    function updateTodayInfo(year, month, day) {
+      const date = new Date(year, month, day);
+      const dayName = dayNames[date.getDay()];
+      const monthName = monthNames[month];
+      todayInfo.textContent = `Today is ${dayName}, ${monthName} ${day}, ${year}`;
+    }
+
+    function init() {
+      const now = new Date();
+      yearSelect.value = now.getFullYear();
+      monthSelect.value = now.getMonth();
+
+      updateTodayInfo(now.getFullYear(), now.getMonth(), now.getDate());
+      generateCalendar(now.getFullYear(), now.getMonth());
+    }
+
+    monthSelect.addEventListener('change', () => {
+      const year = parseInt(yearSelect.value);
+      const month = parseInt(monthSelect.value);
+      generateCalendar(year, month);
+      updateTodayInfo(year, month, 1);
+    });
+
+    yearSelect.addEventListener('change', () => {
+      const year = parseInt(yearSelect.value);
+      const month = parseInt(monthSelect.value);
+      generateCalendar(year, month);
+      updateTodayInfo(year, month, 1);
+    });
+
+    init();
+  </script>
+
+</body>
+</html>
