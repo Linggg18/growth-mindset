@@ -108,22 +108,12 @@
       margin: 0 auto 8px auto;
     }
 
-    textarea {
-      width: 90%;
-      height: 70px;
-      border: 1px solid #207070;
-      border-radius: 10px;
-      padding: 6px 10px;
-      font-size: 1em;
-      resize: vertical;
-      background-color: #e0f7fa;
-      font-family: 'Baloo 2', cursive;
-      color: #104040;
-    }
-
-    textarea::placeholder {
+    .daily-quote {
+      font-size: 0.9em;
       font-style: italic;
-      color: #104040;
+      text-align: center;
+      padding: 0 5px;
+      color: #105050;
     }
 
     footer {
@@ -143,7 +133,6 @@
     <label for="year-select">Year:</label>
     <select id="year-select">
       <option value="2025" selected>2025</option>
-      <!-- you can add more years here -->
     </select>
 
     <label for="month-select">Month:</label>
@@ -164,7 +153,7 @@
   </div>
 
   <div class="calendar" id="calendar-grid">
-    <!-- day names and days will be inserted here by JS -->
+    <!-- calendar cells go here -->
   </div>
 
   <footer>© 2025 Your Name</footer>
@@ -225,7 +214,6 @@
     function generateCalendar(year, month) {
       calendarGrid.innerHTML = '';
 
-      // Add day names header
       dayNames.forEach(day => {
         const dayNameDiv = document.createElement('div');
         dayNameDiv.classList.add('day-name');
@@ -236,7 +224,6 @@
       const firstDay = new Date(year, month, 1).getDay();
       const daysInMonth = getDaysInMonth(year, month);
 
-      // Add empty boxes before first day
       for (let i = 0; i < firstDay; i++) {
         const emptyBox = document.createElement('div');
         emptyBox.classList.add('day-box');
@@ -253,16 +240,17 @@
         dayNumber.classList.add('day-number');
         dayNumber.textContent = day;
 
-        // Highlight today
         if (year === now.getFullYear() && month === now.getMonth() && day === now.getDate()) {
           dayNumber.classList.add('today');
         }
 
-        const textarea = document.createElement('textarea');
-        textarea.placeholder = 'Write your thoughts...';
+        const quoteText = document.createElement('div');
+        quoteText.classList.add('daily-quote');
+        const quoteIndex = (day - 1) % quotes.length;
+        quoteText.textContent = quotes[quoteIndex];
 
         dayBox.appendChild(dayNumber);
-        dayBox.appendChild(textarea);
+        dayBox.appendChild(quoteText);
         calendarGrid.appendChild(dayBox);
       }
     }
