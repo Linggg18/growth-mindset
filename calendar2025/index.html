@@ -137,6 +137,7 @@
 
   <h1>🌸 2025 Growth Calendar 🌸</h1>
   <div id="today-info"></div>
+  <div id="quote" style="font-style: italic; color: #105050; margin-bottom: 25px; font-size: 1.15em;"></div>
 
   <div class="controls">
     <label for="year-select">Year:</label>
@@ -173,13 +174,52 @@
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
                         'July', 'August', 'September', 'October', 'November', 'December'];
 
+    const quotes = [
+      "Believe in yourself and all that you are.",
+      "Every day is a new opportunity to grow.",
+      "Stay positive, work hard, make it happen.",
+      "Your potential is endless.",
+      "Small steps every day lead to big changes.",
+      "Keep going, you’re doing great!",
+      "Dream it. Wish it. Do it.",
+      "Progress, not perfection.",
+      "Be proud of how far you’ve come.",
+      "You are stronger than you think.",
+      "Turn your dreams into plans.",
+      "Success starts with self-belief.",
+      "Mistakes are proof you are trying.",
+      "Stay humble, work hard, be kind.",
+      "Make today amazing!",
+      "You’ve got this!",
+      "Believe you can and you’re halfway there.",
+      "Don’t stop until you’re proud.",
+      "Focus on the good.",
+      "Embrace the journey.",
+      "Be fearless in the pursuit of what sets your soul on fire.",
+      "Keep shining, beautiful one.",
+      "One day at a time.",
+      "Your only limit is you.",
+      "Happiness is a journey, not a destination.",
+      "Grow through what you go through.",
+      "Choose joy every day.",
+      "You are capable of amazing things.",
+      "Let your light shine.",
+      "Stay curious, stay inspired."
+    ];
+
     const calendarGrid = document.getElementById('calendar-grid');
     const todayInfo = document.getElementById('today-info');
     const monthSelect = document.getElementById('month-select');
     const yearSelect = document.getElementById('year-select');
+    const quoteDiv = document.getElementById('quote');
 
     function getDaysInMonth(year, month) {
       return new Date(year, month + 1, 0).getDate();
+    }
+
+    function updateQuote(day) {
+      const index = (day - 1) % quotes.length;
+      quoteDiv.textContent = quotes[index];
     }
 
     function generateCalendar(year, month) {
@@ -196,7 +236,7 @@
       const firstDay = new Date(year, month, 1).getDay();
       const daysInMonth = getDaysInMonth(year, month);
 
-      // Add empty boxes for days before the first day of the month
+      // Add empty boxes before first day
       for (let i = 0; i < firstDay; i++) {
         const emptyBox = document.createElement('div');
         emptyBox.classList.add('day-box');
@@ -213,7 +253,7 @@
         dayNumber.classList.add('day-number');
         dayNumber.textContent = day;
 
-        // Highlight if today
+        // Highlight today
         if (year === now.getFullYear() && month === now.getMonth() && day === now.getDate()) {
           dayNumber.classList.add('today');
         }
@@ -232,6 +272,7 @@
       const dayName = dayNames[date.getDay()];
       const monthName = monthNames[month];
       todayInfo.textContent = `Today is ${dayName}, ${monthName} ${day}, ${year}`;
+      updateQuote(day);
     }
 
     function init() {
@@ -243,19 +284,15 @@
       generateCalendar(now.getFullYear(), now.getMonth());
     }
 
-    monthSelect.addEventListener('change', () => {
+    function onDateChange() {
       const year = parseInt(yearSelect.value);
       const month = parseInt(monthSelect.value);
       generateCalendar(year, month);
       updateTodayInfo(year, month, 1);
-    });
+    }
 
-    yearSelect.addEventListener('change', () => {
-      const year = parseInt(yearSelect.value);
-      const month = parseInt(monthSelect.value);
-      generateCalendar(year, month);
-      updateTodayInfo(year, month, 1);
-    });
+    monthSelect.addEventListener('change', onDateChange);
+    yearSelect.addEventListener('change', onDateChange);
 
     init();
   </script>
