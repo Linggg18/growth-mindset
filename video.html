@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Growth Mindset Videos</title>
     <style>
         body {
-            background: linear-gradient(to right, #ff80bf, #9b59b6); /* Gradient pink to purple */
+            background: linear-gradient(to right, #ff80bf, #9b59b6);
             color: white;
             font-family: Arial, sans-serif;
             margin: 0;
@@ -32,38 +32,50 @@
             font-size: 28px;
             margin-bottom: 40px;
             font-weight: bold;
-            color: #fff;
         }
 
         .video-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 40px;
             justify-content: center;
             border-radius: 15px;
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.1);
         }
 
-        .video-grid iframe {
-            width: 48%; /* Two videos per row */
-            height: 400px;
+        .video-item {
+            width: 48%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .video-item iframe {
+            width: 100%;
+            height: 320px;
             border-radius: 10px;
             border: 3px solid #fff;
         }
 
-        .video-grid iframe:hover {
+        .video-item iframe:hover {
             transform: scale(1.05);
             transition: 0.3s ease;
         }
 
+        .video-description {
+            margin-top: 12px;
+            font-size: 16px;
+            text-align: center;
+            color: #f9f9f9;
+        }
+
         @media (max-width: 768px) {
-            .video-grid iframe {
-                width: 100%; /* Full-width on small screens */
+            .video-item {
+                width: 100%;
             }
         }
 
-        /* Optional: Style for a button or additional decorative element */
         .button {
             display: inline-block;
             background-color: #9b59b6;
@@ -72,7 +84,9 @@
             border-radius: 30px;
             font-size: 18px;
             text-decoration: none;
-            margin-top: 20px;
+            margin: 40px auto 0;
+            display: block;
+            text-align: center;
             transition: background-color 0.3s ease;
         }
 
@@ -80,7 +94,6 @@
             background-color: #ff80bf;
         }
 
-        /* Flower sticker styles */
         .flower-sticker {
             position: absolute;
             top: 10%;
@@ -104,28 +117,56 @@
         <h2>Growth Mindset Videos</h2>
 
         <div class="video-grid">
-            <iframe src="https://www.youtube.com/embed/2zrtHt3bBmQ" frameborder="0" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/M1CHPnZfFmU?si=X3kFisYyTP0Fkvz4" frameborder="0" allowfullscreen></iframe>
-
-            <iframe src="https://www.youtube.com/embed/75GFzikmRY0?si=ofeE2I2uR6Z7jvd-" frameborder="0" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/KUWn_TJTrnU?si=u0y_PvvW5sywc5Zg" frameborder="0" allowfullscreen></iframe>
-
-            <iframe src="https://www.youtube.com/embed/5tSTk1083VY?si=YO16hfG5VUxWPAJE" frameborder="0" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/M1CHPnZfFmU?si=V95KAeMtqTPODAsH" frameborder="0" allowfullscreen></iframe>
-
-            <iframe src="https://www.youtube.com/embed/JfdoJxPjp1k?si=q1ON0Pb1wlw9gc2W" frameborder="0" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/rUJkbWNnNy4?si=fYKw7dGTMEiLty4a" frameborder="0" allowfullscreen></iframe>
-
-            <iframe src="https://www.youtube.com/embed/jYNG5XhrvGQ?si=AlFMj7LmBNALWpeF" frameborder="0" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/hiiEeMN7vbQ?si=xXCfQMf-mTIXdsXQ" frameborder="0" allowfullscreen></iframe>
-
-            <iframe src="https://www.youtube.com/embed/rf8FX2sI3gU?si=xRjRD7Z6uFQ5tjFG" frameborder="0" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/ElVUqv0v1EE?si=dN5ze4dSYQHZcPPP" frameborder="0" allowfullscreen></iframe>
-
-            <iframe src="https://www.youtube.com/embed/aNHas97iE78?si=K-2Th5dIBM1tltHK" frameborder="0" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/xWj-adZemk4?si=lhpFVguhGKureG85" frameborder="0" allowfullscreen></iframe>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/2zrtHt3bBmQ" frameborder="0" allowfullscreen></iframe>
+                <div class="video-description">Introduction to Growth Mindset: Understand the basics of developing a growth-oriented perspective.</div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/M1CHPnZfFmU?si=X3kFisYyTP0Fkvz4" frameborder="0" allowfullscreen></iframe>
+                <div class="video-description">The Power of Believing You Can Improve – Carol Dweck’s TED Talk on changing how you view failure.</div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/75GFzikmRY0?si=ofeE2I2uR6Z7jvd-" frameborder="0" allowfullscreen></iframe>
+                <div class="video-description">Developing a Growth Mindset in Children – Tools for parents and educators to inspire resilience.</div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/KUWn_TJTrnU?si=u0y_PvvW5sywc5Zg" frameborder="0" allowfullscreen></iframe>
+                <div class="video-description">Growth Mindset for Students – How students can embrace challenges and learn from mistakes.</div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/5tSTk1083VY?si=YO16hfG5VUxWPAJE" frameborder="0" allowfullscreen></iframe>
+                <div class="video-description">What Having a "Growth Mindset" Actually Means – Digging deeper into common misconceptions.</div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/M1CHPnZfFmU?si=V95KAeMtqTPODAsH" frameborder="0" allowfullscreen></iframe>
+                <div class="video-description">Repeated TED Talk for deeper reflection – The idea that intelligence isn’t fixed.</div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/JfdoJxPjp1k?si=q1ON0Pb1wlw9gc2W" frameborder="0" allowfullscreen></iframe>
+                <div class="video-description">Mindsets in the Classroom – Real examples of how teachers apply growth mindset principles.</div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/rUJkbWNnNy4?si=fYKw7dGTMEiLty4a" frameborder="0" allowfullscreen></iframe>
+                <div class="video-description">The Difference Between Fixed and Growth Mindset – Explained with engaging animation.</div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/jYNG5XhrvGQ?si=AlFMj7LmBNALWpeF" frameborder="0" allowfullscreen></iframe>
+                <div class="video-description">Growth Mindset in the Workplace – Encouraging innovation and adaptability in careers.</div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/hiiEeMN7vbQ?si=xXCfQMf-mTIXdsXQ" frameborder="0" allowfullscreen></iframe>
+                <div class="video-description">Growth Mindset Animation – A fun and simple way to understand the benefits of a growth mindset.</div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/rf8FX2sI3gU?si=xRjRD7Z6uFQ5tjFG" frameborder="0" allowfullscreen></iframe>
+                <div class="video-description">Tips for Building a Growth Mindset – Practical advice you can start using today.</div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/ElVUqv0v1EE?si=dN5ze4dSYQHZcPPP" frameborder="0" allowfullscreen></iframe>
+                <div class="video-description">Your Brain is Like a Muscle – Learn how the brain grows with effort and learning.</div>
+            </div>
         </div>
-        
+
         <a href="#" class="button">Explore More Videos</a>
 
         <!-- Flower Sticker -->
