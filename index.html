@@ -1,272 +1,260 @@
+Sip! Untuk **nomor 3**, kamu ingin saya buatkan halaman **Calendar 2025** yang sudah ada di daftar link, dengan fitur kalender lengkap 2025 dan juga daily quotes yang bisa muncul setiap hari di kalender itu, ya?
+
+Aku buatkan contoh file `index.html` khusus untuk folder `calendar2025` yang kamu sebutkan. Di sini kalender akan tampil dengan tanggal-tanggal 2025, dan kalau kamu klik tanggal tertentu, muncul quote growth mindset hari itu. Juga akan ada navigasi simpel dan desain yang matching.
+
+---
+
+### Contoh `index.html` untuk Calendar 2025 Growth Mindset
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Understanding Growth Mindset</title>
+  <title>Growth Mindset Calendar 2025</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
 
     body {
-      margin: 0;
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(135deg, #ffe4ec, #e1bee7);
-      color: #4b0082;
+      margin: 0;
+      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+      color: #4a148c;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
     }
 
     header {
-      background: #f06292;
-      color: white;
-      padding: 60px 20px 30px;
       text-align: center;
-      border-bottom-left-radius: 40px;
-      border-bottom-right-radius: 40px;
+      margin-bottom: 30px;
     }
 
     header h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 3.5em;
-      margin: 0;
+      font-weight: 600;
+      font-size: 2.8em;
+      margin-bottom: 5px;
     }
 
     header p {
-      font-size: 1.2em;
-      max-width: 700px;
-      margin: 20px auto 0;
-    }
-
-    nav {
-      margin-top: 20px;
-    }
-
-    nav ul {
-      display: flex;
-      justify-content: center;
-      padding: 0;
-      list-style-type: none;
-    }
-
-    nav ul li {
-      margin: 0 15px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
       font-size: 1.1em;
-      padding: 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    nav a:hover {
-      background-color: #f06292;
-      transform: scale(1.1);
-    }
-
-    .content {
-      max-width: 900px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      padding: 30px;
-    }
-
-    .content h2 {
-      color: #d81b60;
-      font-size: 1.8em;
-      margin-bottom: 10px;
-    }
-
-    .content p {
-      font-size: 1.1em;
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    .links {
-      margin-top: 30px;
-    }
-
-    .links h3 {
-      color: #d81b60;
-      font-size: 1.5em;
-      margin-bottom: 10px;
-    }
-
-    .links ul {
-      list-style-type: '🌟 ';
-      padding-left: 20px;
-    }
-
-    .links a {
-      text-decoration: none;
       color: #6a1b9a;
-      font-weight: 600;
     }
 
-    .links a:hover {
-      text-decoration: underline;
-      color: #ab47bc;
-    }
-
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .grid {
+    #calendar {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      max-width: 720px;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
-    .card {
-      background: #ffffff;
-      border-top: 4px solid #dda0dd;
+    .day-name {
+      font-weight: 600;
+      text-align: center;
+      padding: 10px 0;
+      border-bottom: 2px solid #d1c4e9;
+      color: #7b1fa2;
+    }
+
+    .date-cell {
+      width: 100%;
+      padding: 12px 5px;
+      text-align: center;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .date-cell:hover {
+      background-color: #ede7f6;
+      box-shadow: 0 4px 10px rgba(106, 27, 154, 0.2);
+    }
+
+    .date-cell.inactive {
+      color: #c7c7c7;
+      cursor: default;
+    }
+
+    .date-cell.today {
+      background-color: #ce93d8;
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 0 8px 2px #ab47bcaa;
+    }
+
+    #quote-box {
+      margin-top: 30px;
+      max-width: 720px;
+      background: #fff3e0;
+      border-left: 6px solid #ffa726;
+      border-radius: 10px;
       padding: 20px;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    }
-
-    .icon {
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
-      color: #ff69b4;
-    }
-
-    .title {
-      font-size: 1.2em;
-      margin-bottom: 0.4em;
-      font-weight: bold;
-    }
-
-    .desc {
-      font-size: 0.95em;
-      color: #555;
-      line-height: 1.4;
+      font-style: italic;
+      font-size: 1.25em;
+      color: #6f4e37;
+      box-shadow: 0 6px 14px rgba(255, 167, 38, 0.3);
+      min-height: 80px;
     }
 
     footer {
-      text-align: center;
-      background: #f8bbd0;
-      padding: 25px;
-      font-size: 1em;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
+      margin-top: auto;
       margin-top: 40px;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #7b1fa2;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Understanding Growth Mindset</h1>
-    <p>✨ Welcome to this colorful corner of the web! Here, you'll learn how to grow, improve, and face challenges with courage and positivity! 💪🌈</p>
-    <nav>
-      <ul>
-        <li><a href="#content">About Growth Mindset</a></li>
-        <li><a href="#useful-links">Useful Links</a></li>
-      </ul>
-    </nav>
+    <h1>Growth Mindset Calendar 2025</h1>
+    <p>Click on any date to see the daily motivational quote!</p>
   </header>
 
-  <div class="content" id="content">
-    <h2>🌱 What is a Growth Mindset?</h2>
-    <p>
-      A Growth Mindset is the belief that your abilities and intelligence can be developed through effort, learning, and persistence. People with a growth mindset don’t fear failure—they see it as a learning opportunity.
-    </p>
-    <p>
-      This term was introduced by psychologist Carol Dweck, who showed that people who believe they can improve tend to reach higher goals and become more resilient.
-    </p>
-    <p>
-      So, let’s build a mindset that loves learning, embraces challenges, and grows stronger every day!
-    </p>
+  <div id="calendar">
+    <!-- Day names -->
+    <div class="day-name">Sun</div>
+    <div class="day-name">Mon</div>
+    <div class="day-name">Tue</div>
+    <div class="day-name">Wed</div>
+    <div class="day-name">Thu</div>
+    <div class="day-name">Fri</div>
+    <div class="day-name">Sat</div>
   </div>
 
-  <div class="container" id="useful-links">
-    <h1>🔗 Useful Links</h1>
-    <p>Click any card below to open:</p>
-    <div class="grid">
-  <a class="card" href="https://linggg18.github.io/growth-mindset/index.html">
-    <div class="icon">🌐</div>
-    <div class="title">index.html</div>
-    <div class="desc">Main HTML page of Growth Mindset site.</div>
-  </a>
-
-  <a class="card" href="https://linggg18.github.io/growth-mindset/index.htm">
-    <div class="icon">🌐</div>
-    <div class="title">index.htm</div>
-    <div class="desc">Alternate index page (HTM extension).</div>
-  </a>
-
-  <a class="card" href="https://linggg18.github.io/growth-mindset/growth-mindset.html">
-    <div class="icon">📈</div>
-    <div class="title">growth-mindset.html</div>
-    <div class="desc">Deep dive into the Growth Mindset concept.</div>
-  </a>
-
-  <a class="card" href="https://github.com/Linggg18/growth-mindset">
-    <div class="icon">🐙</div>
-    <div class="title">GitHub Repository</div>
-    <div class="desc">Browse the source code and project files.</div>
-  </a>
-
-  <a class="card" href="https://linggg18.github.io/growth-mindset/video.html">
-    <div class="icon">🎥</div>
-    <div class="title">video.html</div>
-    <div class="desc">Watch the Growth Mindset video presentation.</div>
-  </a>
-
-  <a class="card" href="https://linggg18.github.io/growth-mindset/games/games.html">
-    <div class="icon">🎮</div>
-    <div class="title">Growth Mindset Games</div>
-    <div class="desc">Play games to boost your Growth Mindset!</div>
-  </a>
-  
-  <!-- New Calendar 2025 Link -->
-  <a class="card" href="https://linggg18.github.io/growth-mindset/calendar2025/index.html">
-    <div class="icon">📅</div>
-    <div class="title">Calendar 2025</div>
-    <div class="desc">Explore the 2025 Growth Mindset calendar with daily quotes.</div>
-  </a>
-</div>
-<div class="content">
-  <h2>💬 Stories from Learners</h2>
-  <div class="grid">
-    <div class="card">
-      <div class="icon">🧠</div>
-      <div class="title">Emily, 14</div>
-      <div class="desc">"I used to hate math. But after learning about Growth Mindset, I kept trying—and now I’m proud of my progress!"</div>
-    </div>
-    <div class="card">
-      <div class="icon">🚀</div>
-      <div class="title">Arjun, 17</div>
-      <div class="desc">"Understanding that mistakes are part of growth changed how I see challenges in school and life."</div>
-    </div>
-    <div class="card">
-      <div class="icon">🌟</div>
-      <div class="title">Lina, 12</div>
-      <div class="desc">"Every time I fall, I get up stronger. Growth Mindset made me braver!"</div>
-    </div>
+  <div id="quote-box">
+    Click a date to see the quote here!
   </div>
-</div>
 
   <footer>
-    Powered by Growth Mindset – Your path to a better you!
+    &copy; 2025 Growth Mindset by Linggg18
   </footer>
 
+  <script>
+    const calendar = document.getElementById('calendar');
+    const quoteBox = document.getElementById('quote-box');
+
+    // Quotes array same as before, but can be more or replaced with more quotes
+    const quotes = [
+      "“The only way to learn mathematics is to do mathematics.” – Paul Halmos",
+      "“Don’t worry about failure; you only have to be right once.” – Drew Houston",
+      "“Success is not final, failure is not fatal: It is the courage to continue that counts.” – Winston Churchill",
+      "“Mistakes are proof that you are trying.”",
+      "“Becoming is better than being.” – Carol Dweck",
+      "“In a growth mindset, challenges are exciting rather than threatening.” – Carol Dweck",
+      "“You don’t have to be great to start, but you have to start to be great.” – Zig Ziglar",
+      "“The expert in anything was once a beginner.”",
+      "“It's not about being the best. It's about being better than you were yesterday.”",
+      "“Effort is what ignites ability and turns it into accomplishment.” – Carol Dweck"
+    ];
+
+    function getQuotesIndexForDate(date) {
+      // Use day of year mod quotes length
+      const start = new Date(date.getFullYear(), 0, 0);
+      const diff = date - start;
+      const oneDay = 1000 * 60 * 60 * 24;
+      const dayOfYear = Math.floor(diff / oneDay);
+      return dayOfYear % quotes.length;
+    }
+
+    function buildCalendar(year, month) {
+      // month: 0-based (0 = January)
+      // Clear previous dates (keep day names)
+      const existingDates = document.querySelectorAll('.date-cell');
+      existingDates.forEach(d => d.remove());
+
+      // First day of month and how many days
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      const daysInMonth = lastDay.getDate();
+
+      // Day of week for first day (0=Sun, 6=Sat)
+      const startDay = firstDay.getDay();
+
+      // Previous month's days to show as inactive
+      const prevMonthLastDay = new Date(year, month, 0).getDate();
+
+      // Create inactive days before first day
+      for (let i = startDay - 1; i >= 0; i--) {
+        const cell = document.createElement('div');
+        cell.className = 'date-cell inactive';
+        cell.textContent = prevMonthLastDay - i;
+        calendar.appendChild(cell);
+      }
+
+      // Create active days for current month
+      for (let i = 1; i <= daysInMonth; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'date-cell';
+        cell.textContent = i;
+
+        const dateObj = new Date(year, month, i);
+
+        // Highlight today if matching
+        const today = new Date();
+        if (
+          dateObj.getFullYear() === today.getFullYear() &&
+          dateObj.getMonth() === today.getMonth() &&
+          dateObj.getDate() === today.getDate()
+        ) {
+          cell.classList.add('today');
+          showQuote(dateObj); // Show today's quote on load
+        }
+
+        // On click show quote for that day
+        cell.addEventListener('click', () => {
+          showQuote(dateObj);
+        });
+
+        calendar.appendChild(cell);
+      }
+
+      // Fill remaining cells of last week with inactive next month days to keep grid consistent
+      const totalCells = calendar.querySelectorAll('.date-cell').length;
+      const remainder = totalCells % 7;
+      if (remainder !== 0) {
+        const daysToAdd = 7 - remainder;
+        for (let i = 1; i <= daysToAdd; i++) {
+          const cell = document.createElement('div');
+          cell.className = 'date-cell inactive';
+          cell.textContent = i;
+          calendar.appendChild(cell);
+        }
+      }
+    }
+
+    function showQuote(date) {
+      const idx = getQuotesIndexForDate(date);
+      const dateStr = date.toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
+      quoteBox.textContent = `${dateStr}: ${quotes[idx]}`;
+    }
+
+    // Build calendar for January 2025 by default
+    // But since 2025 Jan is fixed, let's make calendar for whole year instead
+
+    // For a whole year calendar: build all months sequentially
+    // But here, to keep simple, let's build Jan 2025 as requested
+
+    // Instead, let's build the entire calendar month by month below the day names grid.
+
+    // We'll rebuild calendar to show all months 2025 below header
+
+    // So, modifying approach:
+
+  </script>
+
 </body>
-</html>
+</
+```
